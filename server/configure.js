@@ -6,9 +6,11 @@ var path = require('path'),
 	cookieParser = require('cookie-parser'),
 	morgan = require('morgan'),
 	methodOverride = require('method-override'),
-	errorHandler = require('errorhandler');
-	moment = require('moment');
-	multer = require('multer');
+	errorHandler = require('errorhandler'),
+	moment = require('moment'),
+	multer = require('multer'),
+	Handlebars = require('handlebars'),
+	{allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
 
 module.exports = function(app){
 	app.use(morgan('dev'));
@@ -35,6 +37,7 @@ module.exports = function(app){
 	}
 
 	app.engine('handlebars', exphbs.create({
+		handlebars: allowInsecurePrototypeAccess(Handlebars),
 		defaultLayout: 'main',
 		layoutsDir: app.get('views') + '/layout',
 		partialsDir: [app.get('views') + '/partials'],
