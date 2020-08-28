@@ -7,7 +7,7 @@ app.set('port', process.env.PORT || 3300);
 app.set('views', __dirname + '/views');
 app = config(app);
 
-mongoose.connect('DB URL',
+mongoose.connect('mongodb+srv://yaewon:yaewon@testcluster.hft0m.mongodb.net/imgPloadr?retryWrites=true&w=majority',
 	{ useNewUrlParser : true, useUnifiedTopology : true },
 	(err) => {
 		if(err) return console.error(err);

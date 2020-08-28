@@ -15,8 +15,8 @@ var path = require('path'),
 module.exports = function(app){
 	app.use(morgan('dev'));
 	
-	//app.use(bodyParser.urlencoded({'extended':true}));
-	//app.use(bodyParser.json());
+	app.use(bodyParser.urlencoded({'extended':true}));
+	app.use(bodyParser.json());
 
 //	app.use(bodyParser({
 //		uploadDir:path.join(__dirname, 'public/upload/temp')

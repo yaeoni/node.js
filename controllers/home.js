@@ -12,7 +12,6 @@ module.exports = {
 		function(err, images){
 			if(err){ throw err; }
 			
-			console.log('controlloer/home.js : ' + images.uniqueId);
 			viewModel.images = images;
 			sidebar(viewModel, function(viewModel) {
 			res.render('index', viewModel);
