@@ -7,6 +7,27 @@ $(function() {
 	});
 });
 
+$('#btn-delete').on('click', function(event){
+	event.preventDefault();
+	var $this = $(this);
+
+	var remove = confirm('Are you sure to delete want this image?');
+	if(remove){
+		var imgId = $(this).data('id');
+		$.ajax({
+			url: '/images/' + imgId,
+			type: 'DELETE'
+		}).done(function(result){
+			if(result){
+				$this.removeClass('btn-danger').addClass('btn-success');
+				$this.find('i').removeClass('fa-times').addClass('fa-check');
+				$this.append('<span> Deleted!</span>');
+			}
+		});
+	}
+});
+
+
 $('#btn-like').on('click', function(event) {
 	event.preventDefault();
 
